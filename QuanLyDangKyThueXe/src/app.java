@@ -1,8 +1,10 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class app {
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		try
 	    {
@@ -20,23 +22,21 @@ public class app {
 //           System.out.println("SQL Connection to database established!");
            Service service = new Service(connection);
 //           1
-           service.lietKeDongXeTren5Cho();
+           service.lietKeDongXeSoChoNgoiTren(5);
 //           2
-           service.LietKeNCCDieuKienHangXeMucPhi();
+           service.LietKeNCCDieuKienHangXeMucPhi("Toyota", "15000");
+           service.LietKeNCCDieuKienHangXeMucPhi("KIA", "20000");
 //           3
-           System.out.println("Thông tin các nhà cung cấp được sắp xếp tăng dần theo tên nhà cung" + 
-           		" cấp: ");
            service.LietKeNCC("TenNhaCC", true);
-           System.out.println("Thông tin các nhà cung cấp được sắp xếp giảm dần theo mã số thuế: ");
            service.LietKeNCC("MaSoThue", false);
 //           4
-           service.DemSoLanDangKyTheoNCCDieuKienNgayBatDau();
+           service.DemSoLanDangKyTheoNCCDieuKienNgayBatDau(new Date(2015, 11, 20));
 //           5
            service.LietKeHangXe();
 //           6
            service.LietKeDangKyToanBoNCC();
 //           7
-           service.LietKeNCCDongXe();
+           service.LietKeNCCDongXe("Hiace", "Cerato");
 //           8
            service.LietKeNCCChuaDangKy();
            
